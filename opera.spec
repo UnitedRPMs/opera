@@ -12,7 +12,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 39.0.2256.71
+Version: 40.0.2308.54
 Release: 1%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -107,6 +107,9 @@ chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
 
 %changelog
+
+* Tue Sep 20 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 40.0.2308.54-1
+- Updated to 40.0.2308.54
 
 * Mon Sep 19 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 39.0.2256.71-1
 - Updated to 39.0.2256.71
