@@ -12,11 +12,12 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 38.0.2220.29
+Version: 39.0.2256.71
 Release: 1%{dist}
 License: Proprietary
 Group: Applications/Internet
 URL: http://www.opera.com/
+# You can download the latest opera source with the opera-snapshot.sh
 Source0: http://deb.opera.com/opera/pool/non-free/o/%{name}-stable/%{deb_opera}
 Source1: opera-snapshot.sh
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -106,6 +107,18 @@ chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
 
 %changelog
+
+* Mon Sep 19 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 39.0.2256.71-1
+- Updated to 39.0.2256.71
+
+* Wed Aug 10 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 39.0.2256.48-1
+- Updated to 39.0.2256.48
+
+* Sat Jul 16 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 38.0.2220.41-1
+- Updated to 38.0.2220.41
+
+* Tue Jun 14 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 38.0.2220.31-1
+- Updated to 38.0.2220.31
 
 * Tue Jun 07 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 38.0.2220.29-1
 - Updated to 38.0.2220.29
