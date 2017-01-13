@@ -1,4 +1,5 @@
 AutoReqProv: no
+%global debug_package %{nil}
 
 %ifarch x86_64
 %global arch amd64
@@ -13,13 +14,15 @@ AutoReqProv: no
 Summary: A fast and secure web browser
 Name: opera
 Version: 42.0.2393.94
-Release: 1%{dist}
+Release: 2%{dist}
 License: Proprietary
 Group: Applications/Internet
 URL: http://www.opera.com/
 # You can download the latest opera source with the opera-snapshot.sh
 Source0: http://deb.opera.com/opera/pool/non-free/o/%{name}-stable/%{deb_opera}
 Source1: opera-snapshot.sh
+Patch:	 extraffmpeg.patch
+Patch1:  widevine.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: systemd-libs
 #Requires: libudev0
@@ -38,7 +41,7 @@ Requires: freetype
 BuildRequires: binutils xz tar systemd-libs wget curl
 Obsoletes: opera-stable
 Conflicts: opera-beta opera-next opera-developer
-Recommends: chromium-pepper-flash
+Recommends: chromium-pepper-flash chromium-widevine
 
 %description
 Opera is a browser with innovative features, speed and security. 
@@ -51,16 +54,23 @@ pages and "read it later".
 
 %prep
 
-
-%build
-
 # extract data from the deb package
+install -dm 755 %{_builddir}/%{name}-%{version}
 ar x %{SOURCE0} 
 if [ -f data.tar.xz ]; then
-tar xJf data.tar.xz -C %{_builddir}
+tar xJf data.tar.xz -C %{_builddir}/%{name}-%{version}
 elif [ -f data.tar.gz ]; then 
-tar xmzvf data.tar.gz -C %{_builddir}
+tar xmzvf data.tar.gz -C %{_builddir}/%{name}-%{version}
 fi
+
+%setup -T -D %{name}-%{version}
+
+pushd usr/lib/%{fearch}-linux-gnu/opera/resources/
+%patch -p0
+%patch1 -p0 
+popd 
+
+%build
 
 
 %install
@@ -82,7 +92,7 @@ libdir=/usr/lib
 fi
 
 cd $libdir/opera
-LD_LIBRARY_PATH=$libdir:$libdir/opera $libdir/opera/opera "$@" ' >> %{buildroot}/%{_bindir}/%{name}
+LD_LIBRARY_PATH=$libdir:$libdir/opera:$libdir/opera/resources/ $libdir/opera/opera "$@" ' >> %{buildroot}/%{_bindir}/%{name}
 
 chmod a+x %{buildroot}/%{_bindir}/%{name} 
 
@@ -107,6 +117,9 @@ chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
 
 %changelog
+
+* Fri Jan 13 2017 David Vásquez <davidjeremias82 AT gmail DOT com> - 42.0.2393.94-2
+- Support chromium-widevine
 
 * Thu Jan 12 2017 David Vásquez <davidjeremias82 AT gmail DOT com> - 42.0.2393.94-1
 - Updated to 42.0.2393.94

@@ -1,0 +1,9 @@
+--- ffmpeg_preload_config.json	2016-12-17 12:00:08.000000000 -0600
++++ ffmpeg_preload_config-new.json	2017-01-12 17:50:31.420207221 -0600
+@@ -1,4 +1,6 @@
+ [
+   "lib_extra/libffmpeg.so",
+   "/usr/lib/chromium-browser/libs/libffmpeg.so"
++  "/usr/lib64/chromium/libffmpeg.so"
++  "/usr/lib/chromium/libffmpeg.so"
+ ]

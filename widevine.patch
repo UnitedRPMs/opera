@@ -1,0 +1,25 @@
+--- widevine_config.json	2016-12-17 12:00:08.000000000 -0600
++++ widevine_config-new.json	2017-01-12 17:46:24.537439348 -0600
+@@ -8,6 +8,22 @@
+       "plugin" : "/opt/google/chrome-beta/libwidevinecdmadapter.so"
+    },
+    {
++      "preload" : "/usr/lib64/chromium/libwidevinecdm.so",
++      "plugin" : "/usr/lib64/chromium/libwidevinecdmadapter.so"
++   },
++   {
++      "preload" : "/usr/lib/chromium/libwidevinecdm.so",
++      "plugin" : "/usr/lib/chromium/libwidevinecdmadapter.so"
++   },
++   {
++      "preload" : "/usr/lib64/chromium-browser/libwidevinecdm.so",
++      "plugin" : "/usr/lib64/chromium-browser/libwidevinecdmadapter.so"
++   },
++   {
++      "preload" : "/usr/lib/chromium-browser/libwidevinecdm.so",
++      "plugin" : "/usr/lib/chromium-browser/libwidevinecdmadapter.so"
++   },
++   {
+       "preload" : "/opt/google/chrome-unstable/libwidevinecdm.so",
+       "plugin" : "/opt/google/chrome-unstable/libwidevinecdmadapter.so"
+    }
