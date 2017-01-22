@@ -19,7 +19,7 @@ License: Proprietary
 Group: Applications/Internet
 URL: http://www.opera.com/
 # You can download the latest opera source with the opera-snapshot.sh
-Source0: http://deb.opera.com/opera/pool/non-free/o/%{name}-stable/%{deb_opera}
+Source0: http://get.geo.opera.com.global.prod.fastly.net/pub/%{name}/desktop/%{version}/linux/%{deb_opera}
 Source1: opera-snapshot.sh
 Patch:	 extraffmpeg.patch
 Patch1:  widevine.patch
