@@ -13,8 +13,8 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 42.0.2393.94
-Release: 2%{dist}
+Version: 43.0.2442.806
+Release: 1%{dist}
 License: Proprietary
 Group: Applications/Internet
 URL: http://www.opera.com/
@@ -38,7 +38,8 @@ Requires: glibc
 Requires: alsa-lib
 Requires: nss
 Requires: freetype
-BuildRequires: binutils xz tar systemd-libs wget curl
+Requires: chromium-freeworld-libs-media
+BuildRequires: binutils xz tar systemd-libs wget curl 
 Obsoletes: opera-stable
 Conflicts: opera-beta opera-next opera-developer
 Recommends: chromium-pepper-flash chromium-widevine
@@ -104,6 +105,9 @@ rm -rf %{buildroot}/%{_datadir}/{lintian,menu}
 # FATAL:setuid_sandbox_client.cc(283)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /usr/lib64/opera-developer/opera_sandbox is owned by root and has mode 4755.
 chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
+# H264
+rm -f %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
+ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
 
 %files
 %defattr(-,root,root)
@@ -116,74 +120,79 @@ chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 %{_datadir}/mime/packages/opera-stable.xml
 
 
+
 %changelog
 
-* Fri Jan 13 2017 David Vásquez <davidjeremias82 AT gmail DOT com> - 42.0.2393.94-2
+* Fri Feb 17 2017 David Vásquez <davidva AT tutanota DOT com> - 43.0.2442.806-1
+- Updated to 43.0.2442.806-1
+- Support h264
+
+* Fri Jan 13 2017 David Vásquez <davidva AT tutanota DOT com> - 42.0.2393.94-2
 - Support chromium-widevine
 
-* Thu Jan 12 2017 David Vásquez <davidjeremias82 AT gmail DOT com> - 42.0.2393.94-1
+* Thu Jan 12 2017 David Vásquez <davidva AT tutanota DOT com> - 42.0.2393.94-1
 - Updated to 42.0.2393.94
 
-* Tue Sep 20 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 40.0.2308.54-1
+* Tue Sep 20 2016 David Vásquez <davidva AT tutanota DOT com> - 40.0.2308.54-1
 - Updated to 40.0.2308.54
 
-* Mon Sep 19 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 39.0.2256.71-1
+* Mon Sep 19 2016 David Vásquez <davidva AT tutanota DOT com> - 39.0.2256.71-1
 - Updated to 39.0.2256.71
 
-* Wed Aug 10 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 39.0.2256.48-1
+* Wed Aug 10 2016 David Vásquez <davidva AT tutanota DOT com> - 39.0.2256.48-1
 - Updated to 39.0.2256.48
 
-* Sat Jul 16 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 38.0.2220.41-1
+* Sat Jul 16 2016 David Vásquez <davidva AT tutanota DOT com> - 38.0.2220.41-1
 - Updated to 38.0.2220.41
 
-* Tue Jun 14 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 38.0.2220.31-1
+* Tue Jun 14 2016 David Vásquez <davidva AT tutanota DOT com> - 38.0.2220.31-1
 - Updated to 38.0.2220.31
 
-* Tue Jun 07 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 38.0.2220.29-1
+* Tue Jun 07 2016 David Vásquez <davidva AT tutanota DOT com> - 38.0.2220.29-1
 - Updated to 38.0.2220.29
 
-* Sun May 08 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 37.0.2178.32-1
+* Sun May 08 2016 David Vásquez <davidva AT tutanota DOT com> - 37.0.2178.32-1
 - Updated to 37.0.2178.32
 
-* Thu Apr 14 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 36.0.2130.65-1
+* Thu Apr 14 2016 David Vásquez <davidva AT tutanota DOT com> - 36.0.2130.65-1
 - Updated to 36.0.2130.65
 
-* Tue Feb 02 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 35.0.2066.37-1
+* Tue Feb 02 2016 David Vásquez <davidva AT tutanota DOT com> - 35.0.2066.37-1
 - Updated to 35.0.2066.37
 
-* Wed Jan 27 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 34.0.2036.50-1
+* Wed Jan 27 2016 David Vásquez <davidva AT tutanota DOT com> - 34.0.2036.50-1
 - Updated to 34.0.2036.50
 
-* Thu Jan 07 2016 David Vásquez <davidjeremias82 AT gmail DOT com> - 34.0.2036.25-1
+* Thu Jan 07 2016 David Vásquez <davidva AT tutanota DOT com> - 34.0.2036.25-1
 - Updated to 34.0.2036.25
 
-* Fri Nov 06 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 33.0.1990.58-2
+* Fri Nov 06 2015 David Vásquez <davidva AT tutanota DOT com> - 33.0.1990.58-2
 - Recommended chromium-pepper-flash
 
-* Thu Nov 05 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 33.0.1990.58-1
+* Thu Nov 05 2015 David Vásquez <davidva AT tutanota DOT com> - 33.0.1990.58-1
 - Updated to 33.0.1990.58
 
-* Wed Sep 30 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 32.0.1948.69-1
+* Wed Sep 30 2015 David Vásquez <davidva AT tutanota DOT com> - 32.0.1948.69-1
 - Updated to 32.0.1948.69
 
-* Sat Aug 08 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 31.0.1889.99-1
+* Sat Aug 08 2015 David Vásquez <davidva AT tutanota DOT com> - 31.0.1889.99-1
 - Updated to 31.0.1889.99
 
-* Thu Jun 25 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 30.0.1835.88-1
+* Thu Jun 25 2015 David Vásquez <davidva AT tutanota DOT com> - 30.0.1835.88-1
 - Updated to - 29.0.1795.60
 
-* Sat May 23 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 29.0.1795.60-1
+* Sat May 23 2015 David Vásquez <davidva AT tutanota DOT com> - 29.0.1795.60-1
 - Updated to - 29.0.1795.60
 - Deleted bundled libraries (ssl)
 - Rewrited spec, for future compatibility of Opera 32bits
 
-* Wed Mar 18 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 28.0.1750.48-1
+* Wed Mar 18 2015 David Vásquez <davidva AT tutanota DOT com> - 28.0.1750.48-1
 - Updated to - 28.0.1750.48-1
 
-* Wed Jan 28 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 27.0.1689.54-1
+* Wed Jan 28 2015 David Vásquez <davidva AT tutanota DOT com> - 27.0.1689.54-1
 - Updated to 27.0.1689.54
 
-* Sat Jan 10 2015 David Vásquez <davidjeremias82 AT gmail DOT com> - 26.0.1656.60-1
+* Sat Jan 10 2015 David Vásquez <davidva AT tutanota DOT com> - 26.0.1656.60-1
 - Upstream
 - Updated to 26.0.1656.60
 - replaced libudev.so.0 symlink for libudev0
