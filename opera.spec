@@ -1,6 +1,7 @@
 AutoReqProv: no
 %global debug_package %{nil}
 
+
 %ifarch x86_64
 %global arch amd64
 %global fearch x86_64
@@ -65,7 +66,6 @@ tar xmzvf data.tar.gz -C %{_builddir}/%{name}-%{version}
 fi
 
 %setup -T -D %{name}-%{version}
-
 pushd usr/lib/%{fearch}-linux-gnu/opera/resources/
 %patch -p0
 %patch1 -p0 

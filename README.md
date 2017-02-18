@@ -1,4 +1,4 @@
 # Opera
 
 Summary: A fast and secure web browser
-Version: 40.0.2308.54
+Version: 43.0.2442.806
