@@ -14,7 +14,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 43.0.2442.806
+Version: 43.0.2442.1144
 Release: 1%{dist}
 License: Proprietary
 Group: Applications/Internet
