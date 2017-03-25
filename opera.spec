@@ -14,7 +14,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 43.0.2442.1144
+Version: 44.0.2510.857
 Release: 1%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -65,7 +65,7 @@ elif [ -f data.tar.gz ]; then
 tar xmzvf data.tar.gz -C %{_builddir}/%{name}-%{version}
 fi
 
-%setup -T -D %{name}-%{version}
+%setup -T -D %{name}-%{version} 
 pushd usr/lib/%{fearch}-linux-gnu/opera/resources/
 %patch -p0
 %patch1 -p0 
@@ -122,6 +122,9 @@ ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpe
 
 
 %changelog
+
+* Sat Mar 25 2017 David Vásquez <davidva AT tutanota DOT com> - 44.0.2510.857-1
+- Updated to 44.0.2510.857-1
 
 * Fri Feb 17 2017 David Vásquez <davidva AT tutanota DOT com> - 43.0.2442.806-1
 - Updated to 43.0.2442.806-1
