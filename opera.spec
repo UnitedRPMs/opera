@@ -14,7 +14,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 44.0.2510.857
+Version: 44.0.2510.1159
 Release: 1%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -122,6 +122,9 @@ ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpe
 
 
 %changelog
+
+* Sat Apr 08 2017 David Vásquez <davidva AT tutanota DOT com> - 44.0.2510.1159-1
+- Updated to 44.0.2510.1159
 
 * Sat Mar 25 2017 David Vásquez <davidva AT tutanota DOT com> - 44.0.2510.857-1
 - Updated to 44.0.2510.857-1
