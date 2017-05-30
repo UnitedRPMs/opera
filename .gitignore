@@ -4,3 +4,4 @@ RPMS/*
 SPECS/*
 SRPMS/*
 opera*.deb
+.directory
