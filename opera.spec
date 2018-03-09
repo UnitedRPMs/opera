@@ -14,7 +14,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 51.0.2830.40
+Version: 51.0.2830.55
 Release: 1%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -122,6 +122,9 @@ ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpe
 
 
 %changelog
+
+* Wed Mar 07 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 51.0.2830.55-1
+- Updated to 51.0.2830.55
 
 * Fri Feb 23 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 51.0.2830.40-1
 - Updated to 51.0.2830.40
