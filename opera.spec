@@ -15,15 +15,13 @@ AutoReqProv: no
 Summary: A fast and secure web browser
 Name: opera
 Version: 53.0.2907.99
-Release: 1%{dist}
+Release: 2%{dist}
 License: Proprietary
 Group: Applications/Internet
 URL: http://www.opera.com/
 # You can download the latest opera source with the opera-snapshot.sh
 Source0: http://get.geo.opera.com.global.prod.fastly.net/pub/%{name}/desktop/%{version}/linux/%{deb_opera}
 Source1: opera-snapshot.sh
-Patch:	 extraffmpeg.patch
-Patch1:  widevine.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: systemd-libs
 #Requires: libudev0
@@ -66,10 +64,7 @@ tar xmzvf data.tar.gz -C %{_builddir}/%{name}-%{version}
 fi
 
 %setup -T -D %{name}-%{version} 
-pushd usr/lib/%{fearch}-linux-gnu/opera/resources/
-%patch -p0
-%patch1 -p0 
-popd 
+
 
 %build
 
@@ -122,6 +117,9 @@ ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpe
 
 
 %changelog
+
+* Sun Jun 17 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 53.0.2907.99-2
+- Fix internal dependency
 
 * Thu Jun 14 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 53.0.2907.99-1
 - Updated to 53.0.2907.99
