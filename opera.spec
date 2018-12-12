@@ -14,7 +14,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 57.0.3098.76
+Version: 57.0.3098.91
 Release: 2%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -88,7 +88,7 @@ libdir=/usr/lib
 fi
 
 cd $libdir/opera
-LD_LIBRARY_PATH=$libdir:$libdir/opera:$libdir/opera/resources/ $libdir/opera/opera "$@" ' >> %{buildroot}/%{_bindir}/%{name}
+LD_LIBRARY_PATH=$libdir:$libdir/opera:$libdir/opera/resources/:$PWD $libdir/opera/opera "$@" ' >> %{buildroot}/%{_bindir}/%{name}
 
 chmod a+x %{buildroot}/%{_bindir}/%{name} 
 
@@ -117,6 +117,9 @@ ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpe
 
 
 %changelog
+
+* Tue Dec 11 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 57.0.3098.91-2
+- Updated to 57.0.3098.91
 
 * Wed Nov 28 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 57.0.3098.76-2
 - Updated to 57.0.3098.76

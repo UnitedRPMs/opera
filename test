@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ `getconf LONG_BIT` = "64" ]; then
+libdir=/usr/lib64
+else
+libdir=/usr/lib
+fi
+
+cd $libdir/opera
+LD_LIBRARY_PATH=$libdir:$libdir/opera:$libdir/opera/resources/:$PWD:$libdir/chromium  $libdir/opera/opera "$@"
+
+
