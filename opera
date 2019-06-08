@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo 'Loading libs...'
+if [ `getconf LONG_BIT` = "64" ]; then
+libdir=/usr/lib64
+else
+libdir=/usr/lib
+fi
+
+# Detect if PepperFlash has been installed (based on the package in packman)
+# If so, automatically enable it
+if [ -f $libdir/chromium/PepperFlash/libpepflashplayer.so ]; then
+      PEPPER_FLASH_VERSION=$(grep '"version":' $libdir/chromium/PepperFlash/manifest.json| grep -Po '(?<=version": ")(?:\d|\.)*')
+      PEPPERFLASH="--ppapi-flash-path=$libdir/chromium/PepperFlash/libpepflashplayer.so --ppapi-flash-version=$PEPPER_FLASH_VERSION"
+fi
+
+pushd $libdir/opera
+
+
+LD_LIBRARY_PATH=$PWD:$libdir $PWD/opera ${PEPPERFLASH} "--password-store=basic" "--enable-plugins" "--enable-extensions" "--enable-user-scripts" "--enable-printing" "--enable-gpu-rasterization" "--enable-native-gpu-memory-buffers" "--enable-sync" "--auto-ssl-client-auth" "--no-default-browser-check" "--disable-gpu-driver-bug-workarounds" "$@"
+
+popd
+
+
+
+

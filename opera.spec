@@ -14,7 +14,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 60.0.3255.109
+Version: 60.0.3255.151
 Release: 2%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -22,6 +22,7 @@ URL: http://www.opera.com/
 # You can download the latest opera source with the opera-snapshot.sh
 Source0: http://get.geo.opera.com.global.prod.fastly.net/pub/%{name}/desktop/%{version}/linux/%{deb_opera}
 Source1: opera-snapshot.sh
+Source2: opera
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: systemd-libs
 #Requires: libudev0
@@ -80,15 +81,7 @@ mv -f usr/lib/%{fearch}-linux-gnu/%{name} %{buildroot}/%{_libdir}/
 mv -f usr/share %{buildroot}/%{_prefix}
 
 
-echo '#!/bin/bash
-if [ `getconf LONG_BIT` = "64" ]; then
-libdir=/usr/lib64
-else
-libdir=/usr/lib
-fi
-
-cd $libdir/opera
-LD_LIBRARY_PATH=$libdir:$libdir/opera:$libdir/opera/resources/:$PWD $libdir/opera/opera "$@" ' >> %{buildroot}/%{_bindir}/%{name}
+cp -f %{S:2} %{buildroot}/%{_bindir}/%{name}
 
 chmod a+x %{buildroot}/%{_bindir}/%{name} 
 
@@ -117,6 +110,9 @@ ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpe
 
 
 %changelog
+
+* Fri Jun 07 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 60.0.3255.151-2
+- Updated to 60.0.3255.151
 
 * Sat May 25 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 60.0.3255.109-2
 - Updated to 60.0.3255.109
