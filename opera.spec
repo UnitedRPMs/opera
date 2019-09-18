@@ -14,8 +14,8 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 63.0.3368.91
-Release: 2%{dist}
+Version: 63.0.3368.88
+Release: 3%{dist}
 License: Proprietary
 Group: Applications/Internet
 URL: http://www.opera.com/
@@ -23,6 +23,7 @@ URL: http://www.opera.com/
 Source0: http://get.geo.opera.com.global.prod.fastly.net/pub/%{name}/desktop/%{version}/linux/%{deb_opera}
 Source1: opera-snapshot.sh
 Source2: opera
+Patch:   widevine_fix.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: systemd-libs
 #Requires: libudev0
@@ -66,6 +67,9 @@ fi
 
 %setup -T -D %{name}-%{version} 
 
+pushd usr/lib/x86_64-linux-gnu/opera/resources/
+%patch -p0
+popd
 
 %build
 
@@ -111,8 +115,8 @@ ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpe
 
 %changelog
 
-* Wed Sep 18 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 63.0.3368.91-2
-- Updated to 63.0.3368.91
+* Wed Sep 18 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 63.0.3368.88-3
+- Widevine fix
 
 * Thu Sep 12 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 63.0.3368.88-2
 - Updated to 63.0.3368.88

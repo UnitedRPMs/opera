@@ -1,0 +1,14 @@
+--- widevine_config.json	2019-09-11 12:28:21.000000000 -0600
++++ widevine_config-new.json	2019-09-18 16:09:20.253362065 -0600
+@@ -1,5 +1,11 @@
+ [
+    {
++      "preload" : "/usr/lib64/chromium/libwidevinecdm.so"
++   },
++   {
++      "preload" : "/usr/lib64/chromium-browser/libwidevinecdm.so"
++   },
++   {
+       "preload" : "/opt/google/chrome/libwidevinecdm.so"
+    },
+    {

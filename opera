@@ -14,10 +14,14 @@ if [ -f $libdir/chromium/PepperFlash/libpepflashplayer.so ]; then
       PEPPERFLASH="--ppapi-flash-path=$libdir/chromium/PepperFlash/libpepflashplayer.so --ppapi-flash-version=$PEPPER_FLASH_VERSION"
 fi
 
+if [ -f $libdir/chromium/libwidevinecdm.so ]; then
+WIDEVINE=/usr/lib64/chromium/
+fi
+
 pushd $libdir/opera
 
 
-LD_LIBRARY_PATH=$PWD:$libdir $PWD/opera ${PEPPERFLASH} "--password-store=basic" "--enable-plugins" "--enable-extensions" "--enable-user-scripts" "--enable-printing" "--enable-gpu-rasterization" "--enable-native-gpu-memory-buffers" "--enable-sync" "--auto-ssl-client-auth" "--no-default-browser-check" "--disable-gpu-driver-bug-workarounds" "$@"
+LD_LIBRARY_PATH=$PWD:$libdir:${WIDEVINE} $PWD/opera ${PEPPERFLASH}  "--password-store=basic" "--enable-plugins" "--enable-extensions" "--enable-user-scripts" "--enable-printing" "--enable-gpu-rasterization" "--enable-native-gpu-memory-buffers" "--enable-sync" "--auto-ssl-client-auth" "--no-default-browser-check" "--disable-gpu-driver-bug-workarounds" "$@"
 
 popd
 
