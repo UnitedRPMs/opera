@@ -41,7 +41,7 @@ Requires: nss
 Requires: freetype
 Requires: chromium-freeworld-libs-media
 BuildRequires: binutils xz tar systemd-libs wget curl 
-Obsoletes: opera-stable >= %{version}
+Obsoletes: opera-stable = %{version}
 Conflicts: opera-beta opera-next opera-developer
 Recommends: chromium-pepper-flash chromium-widevine
 
