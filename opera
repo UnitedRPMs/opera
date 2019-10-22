@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 echo 'Loading libs...'
 if [ `getconf LONG_BIT` = "64" ]; then
