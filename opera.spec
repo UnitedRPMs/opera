@@ -26,6 +26,7 @@ Source0: http://get.geo.opera.com.global.prod.fastly.net/pub/%{name}/desktop/%{v
 Source1: opera-snapshot.sh
 Source2: opera
 Patch:   widevine_fix.patch
+Patch1:  ffmpeg_patch.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: systemd-libs
 #Requires: libudev0
@@ -71,6 +72,7 @@ fi
 
 pushd usr/lib/x86_64-linux-gnu/opera/resources/
 %patch -p0
+%patch1 -p0
 popd
 
 %build
@@ -99,11 +101,9 @@ rm -rf %{buildroot}/%{_datadir}/{lintian,menu}
 # FATAL:setuid_sandbox_client.cc(283)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /usr/lib64/opera-developer/opera_sandbox is owned by root and has mode 4755.
 chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
-# H264
+# We are using a full ffmpeg in UnitedRPMs
 rm -f %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
-pushd %{buildroot}/%{_libdir}/%{name}/
-ln -sf %{_libdir}/chromium/libffmpeg.so libffmpeg.so
-popd
+
 
 %files
 %defattr(-,root,root)
@@ -121,6 +121,7 @@ popd
 
 * Mon Oct 21 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 64.0.3417.61-3
 - Updated to 64.0.3417.61
+- FFmpeg external enabled
 
 * Mon Oct 14 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 64.0.3417.54-3
 - Updated to 64.0.3417.54

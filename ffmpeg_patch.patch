@@ -1,0 +1,9 @@
+--- ffmpeg_preload_config.json	2019-10-15 10:19:09.000000000 -0600
++++ ffmpeg_preload_config-new.json	2019-10-22 12:14:55.560780289 -0600
+@@ -1,4 +1,6 @@
+ [
++  "/usr/lib64/chromium/libffmpeg.so",
++  "/usr/lib/chromium/libffmpeg.so",
+   "../../../../chromium-ffmpeg/libffmpeg.so",
+   "/usr/lib/chromium-browser/libffmpeg.so",
+   "/usr/lib/chromium-browser/libs/libffmpeg.so"
