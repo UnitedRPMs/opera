@@ -1,5 +1,7 @@
 AutoReqProv: no
 %global debug_package %{nil}
+%global __mangle_shebangs_exclude_from %{_bindir}
+%global __mangle_shebangs_exclude_from %{_libdir}
 
 
 %ifarch x86_64
