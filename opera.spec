@@ -95,11 +95,13 @@ rm -rf %{buildroot}/%{_datadir}/{lintian,menu}
 
 # correct opera_sandbox permission
 # FATAL:setuid_sandbox_client.cc(283)] The SUID sandbox helper binary was found, but is not configured correctly. Rather than run without sandboxing I'm aborting now. You need to make sure that /usr/lib64/opera-developer/opera_sandbox is owned by root and has mode 4755.
-# chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
+chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
 # H264
 rm -f %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
-ln -sf %{_libdir}/chromium/libffmpeg.so %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
+pushd %{buildroot}/%{_libdir}/%{name}/
+ln -sf %{_libdir}/chromium/libffmpeg.so libffmpeg.so
+popd
 
 %files
 %defattr(-,root,root)
