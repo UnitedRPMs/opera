@@ -119,6 +119,9 @@ rm -f %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
 
 %changelog
 
+* Tue Oct 22 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 64.0.3417.70-3
+- Updated to 64.0.3417.70-3
+
 * Mon Oct 21 2019 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 64.0.3417.61-3
 - Updated to 64.0.3417.61
 - FFmpeg external enabled
