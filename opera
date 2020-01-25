@@ -18,6 +18,14 @@ if [ -f $libdir/chromium/libwidevinecdm.so ]; then
 WIDEVINE=/usr/lib64/chromium/
 fi
 
+# Detect if Widevine update component exist
+if [ ! -f $HOME/.config/opera/WidevineCdm/latest-component-updated-widevine-cdm ] || [ ! -n $HOME/.config/opera/WidevineCdm ] ; then
+mkdir -p $HOME/.config/opera/WidevineCdm
+echo '{"Path":"/usr/lib64/chromium/WidevineCdm"}' > $HOME/.config/opera/WidevineCdm/latest-component-updated-widevine-cdm
+fi
+
+$HOME/.config/opera/WidevineCdm
+
 pushd $libdir/opera
 
 
