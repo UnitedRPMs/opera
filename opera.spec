@@ -1,3 +1,20 @@
+#
+# spec file for package opera
+#
+# Copyright (c) 2020 UnitedRPMs.
+#
+# All modifications and additions to the file contributed by third parties
+# remain the property of their copyright owners, unless otherwise agreed
+# upon. The license for this file, and modifications and additions to the
+# file, is the same license as for the pristine package itself (unless the
+# license for the pristine package is not an Open Source License, in which
+# case the license is the MIT License). An "Open Source License" is a
+# license that conforms to the Open Source Definition (Version 1.9)
+# published by the Open Source Initiative.
+
+# Please submit bugfixes or comments via https://goo.gl/zqFJft
+#
+
 AutoReqProv: no
 %global debug_package %{nil}
 %global __mangle_shebangs_exclude_from %{_bindir}
@@ -16,7 +33,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 66.0.3515.44
+Version: 66.0.3515.72
 Release: 3%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -103,7 +120,9 @@ chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
 # We are using a full ffmpeg in UnitedRPMs
 rm -f %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
-
+pushd %{buildroot}/%{_libdir}/%{name}/
+ln -sf %{_libdir}/chromium/libffmpeg.so libffmpeg.so
+popd
 
 %files
 %defattr(-,root,root)
@@ -118,6 +137,9 @@ rm -f %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
 
 
 %changelog
+
+* Sun Feb 09 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 66.0.3515.72-3
+- Updated to 66.0.3515.72
 
 * Sat Jan 25 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 66.0.3515.44-3
 - Updated to 66.0.3515.44
