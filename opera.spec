@@ -33,7 +33,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 67.0.3575.97
+Version: 67.0.3575.115
 Release: 3%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -42,6 +42,7 @@ URL: http://www.opera.com/
 Source0: http://get.geo.opera.com.global.prod.fastly.net/pub/%{name}/desktop/%{version}/linux/%{deb_opera}
 Source1: opera-snapshot.sh
 Source2: opera
+Source3: com.opera.opera.metainfo.xml
 Patch:   widevine_fix.patch
 Patch1:  ffmpeg_patch.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -124,6 +125,9 @@ pushd %{buildroot}/%{_libdir}/%{name}/
 ln -sf %{_libdir}/chromium/libffmpeg.so libffmpeg.so
 popd
 
+# Install AppData
+  install -Dm 0644 %{S:3} %{buildroot}/%{_metainfodir}/com.opera.opera.metainfo.xml
+
 %files
 %defattr(-,root,root)
 %{_bindir}/%{name}
@@ -133,10 +137,13 @@ popd
 %{_datadir}/icons/hicolor/*/apps/opera.png
 %{_datadir}/pixmaps/opera.xpm
 %{_datadir}/mime/packages/opera-stable.xml
-
+%{_metainfodir}/com.opera.opera.metainfo.xml
 
 
 %changelog
+
+* Tue Mar 31 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 67.0.3575.115-3
+- Updated to 67.0.3575.115
 
 * Thu Mar 19 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 67.0.3575.97-3
 - Updated to 67.0.3575.97

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.opera.opera</id>
+  
+  <name>opera</name>
+  <summary>A fast and secure web browser</summary>
+  
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LicenseRef-proprietary:Opera</project_license>
+  
+  <description>
+    <p>
+      Opera is a browser with innovative features, speed and security.  The browser delivers a highly customizable start page (Speed Dial) where you can set your top sites and bookmarks, Off-road mode for data saving and faster browsing in slow networks such as 3G/2G and public Wi-Fi, a Discover page for getting the best of the web content.
+    </p>
+  </description>
+  
+  <launchable type="desktop-id">opera.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/UnitedRPMs/opera/releases/download/screenshot/1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/UnitedRPMs/opera/releases/download/screenshot/2.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/UnitedRPMs/opera/releases/download/screenshot/3.png</image>
+    </screenshot>
+  </screenshots>
+</component>
