@@ -29,7 +29,7 @@ $HOME/.config/opera/WidevineCdm
 pushd $libdir/opera
 
 
-LD_LIBRARY_PATH=$PWD:$libdir:${WIDEVINE} $PWD/opera ${PEPPERFLASH}  "--password-store=basic" "--enable-plugins" "--enable-extensions" "--enable-user-scripts" "--enable-printing" "--enable-gpu-rasterization" "--enable-native-gpu-memory-buffers" "--enable-sync" "--auto-ssl-client-auth" "--no-default-browser-check" "--disable-gpu-driver-bug-workarounds" "$@"
+LD_LIBRARY_PATH=$PWD:$libdir:${WIDEVINE} $PWD/opera ${PEPPERFLASH}  "--password-store=basic" "--enable-plugins" "--enable-extensions" "--enable-user-scripts" "--enable-printing" "--enable-sync" "--auto-ssl-client-auth" "--no-default-browser-check" "$@"
 
 popd
 
