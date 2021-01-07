@@ -1,7 +1,7 @@
 #
 # spec file for package opera
 #
-# Copyright (c) 2020 UnitedRPMs.
+# Copyright (c) 2021 UnitedRPMs.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -33,7 +33,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 72.0.3815.400
+Version: 73.0.3856.329
 Release: 4%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -141,6 +141,9 @@ popd
 
 
 %changelog
+
+* Wed Jan 06 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 73.0.3856.329-4
+- Updated to 73.0.3856.329
 
 * Mon Nov 30 2020 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 72.0.3815.400-4
 - Updated to 72.0.3815.400
