@@ -33,7 +33,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 74.0.3911.232
+Version: 75.0.3969.93
 Release: 4%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -141,6 +141,9 @@ popd
 
 
 %changelog
+
+* Sat Mar 27 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 75.0.3969.93-4
+- Updated to 75.0.3969.93
 
 * Sat Mar 20 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 74.0.3911.232-4
 - Updated to 74.0.3911.232
