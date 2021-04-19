@@ -89,7 +89,7 @@ fi
 %setup -T -D %{name}-%{version} 
 
 pushd usr/lib/x86_64-linux-gnu/opera/resources/
-%patch -p0
+#patch -p0
 %patch1 -p0
 popd
 
