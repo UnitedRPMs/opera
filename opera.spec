@@ -33,7 +33,7 @@ AutoReqProv: no
 
 Summary: A fast and secure web browser
 Name: opera
-Version: 77.0.4054.172
+Version: 77.0.4054.277
 Release: 4%{dist}
 License: Proprietary
 Group: Applications/Internet
@@ -60,11 +60,12 @@ Requires: glibc
 Requires: alsa-lib
 Requires: nss
 Requires: freetype
-Requires: chromium-freeworld-libs-media
+#Requires: chromium-freeworld-libs-media
 BuildRequires: binutils xz tar systemd-libs wget curl 
 Obsoletes: opera-stable = %{version}
 Conflicts: opera-beta opera-next opera-developer
-Recommends: chromium-pepper-flash chromium-widevine
+Recommends: chromium-pepper-flash 
+#Recommends: chromium-widevine
 
 %description
 Opera is a browser with innovative features, speed and security. 
@@ -120,10 +121,10 @@ rm -rf %{buildroot}/%{_datadir}/{lintian,menu}
 chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
 # We are using a full ffmpeg in UnitedRPMs
-rm -f %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
-pushd %{buildroot}/%{_libdir}/%{name}/
-ln -sf %{_libdir}/chromium/libffmpeg.so libffmpeg.so
-popd
+#rm -f %{buildroot}/%{_libdir}/%{name}/libffmpeg.so
+#pushd %{buildroot}/%{_libdir}/%{name}/
+#ln -sf %{_libdir}/chromium/libffmpeg.so libffmpeg.so
+#popd
 
 # Install AppData
   install -Dm 0644 %{S:3} %{buildroot}/%{_metainfodir}/com.opera.opera.metainfo.xml
@@ -141,6 +142,9 @@ popd
 
 
 %changelog
+
+* Wed Jul 28 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 77.0.4054.277-4
+- Updated to 77.0.4054.277
 
 * Thu Jul 01 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 77.0.4054.172-4
 - Updated to 77.0.4054.172
