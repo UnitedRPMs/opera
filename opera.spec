@@ -143,6 +143,9 @@ chmod 4755 $RPM_BUILD_ROOT%{_libdir}/%{name}/opera_sandbox
 
 %changelog
 
+* Fri Sep 03 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 78.0.4093.184-4
+- Updated to 78.0.4093.184
+
 * Thu Aug 26 2021 Unitedrpms Project <unitedrpms AT protonmail DOT com> - 78.0.4093.184-4
 - Updated to 78.0.4093.184
 
